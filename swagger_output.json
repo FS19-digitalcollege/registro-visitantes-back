@@ -1,0 +1,126 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Museu API",
+    "description": "Documentação da API do Museu"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/visitantes/grafico-por-genero": {
+      "get": {
+        "tags": [
+          "Visitantes por gênero"
+        ],
+        "summary": "Este endpoit devolve um array de objetos contendo o nome do gênero e o total",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/visitantes/grafico-por-cidade": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/visitantes/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/visitantes/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Visitante": {
+      "type": "object",
+      "properties": {
+        "visitante_nome": {
+          "type": "string",
+          "example": "Gleidson"
+        },
+        "visitante_cpf": {
+          "type": "string",
+          "example": "000.000.000-00"
+        },
+        "visitante_profissao": {
+          "type": "string",
+          "example": "Developer"
+        },
+        "visitante_cidade": {
+          "type": "string",
+          "example": "Fortaleza"
+        },
+        "visitante_bairro": {
+          "type": "string",
+          "example": "Edson Queiroz"
+        },
+        "visitante_genero": {
+          "type": "number",
+          "example": 0
+        },
+        "visitante_data": {
+          "type": "string",
+          "example": "2024-03-01 11:47:00"
+        },
+        "visitante_status": {
+          "type": "boolean",
+          "example": false
+        }
+      },
+      "required": [
+        "visitante_nome",
+        "visitante_cpf",
+        "visitante_profissao",
+        "visitante_cidade",
+        "visitante_bairro",
+        "visitante_genero",
+        "visitante_data",
+        "visitante_status"
+      ]
+    }
+  }
+}
