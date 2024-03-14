@@ -11,16 +11,22 @@ const graficoPorCidade = async () => {
 }
 
 const listarTodos = async () => {
-    return prisma.visitantes.findMany();
+    return await prisma.visitantes.findMany();
 }
 
 const listarUm = async (id) => {
-    return prisma.visitantes.findFirst({ where: { visitante_id: id}});
+    return await prisma.visitantes.findFirst({ where: { visitante_id: id}});
+}
+
+const criarVisitante = async (dados) => {
+    // return await prisma.visitantes.create(dados);
+    return await execute(`INSERT INTO visitantes (visitante_nome,visitante_genero,visitante_bairro,visitante_cidade,visitante_cpf,visitante_profissao,visitante_idade, visitante_data) VALUES ('${dados.visitante_nome}','${dados.visitante_genero}','${dados.visitante_bairro}','${dados.visitante_cidade}','${dados.visitante_cpf}','${dados.visitante_profissao}','${dados.visitante_idade}','2024-03-14 09:57:00');`);
 }
 
 module.exports = {
     graficoPorGenero,
     graficoPorCidade,
     listarTodos,
-    listarUm
+    listarUm,
+    criarVisitante
 }
